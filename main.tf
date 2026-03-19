@@ -17,7 +17,6 @@ resource "azurerm_resource_group" "rg011" {
 #     location                 = "westus"
 #     account_tier             = "Standard"
 #     account_replication_type = "LRS"
-
 # }
 resource "azurerm_storage_account" "sa012" {
     depends_on = [azurerm_resource_group.rg011]
@@ -26,5 +25,4 @@ resource "azurerm_storage_account" "sa012" {
     location                 = "westus"
     account_tier             = "Standard"
     account_replication_type = "LRS"
-
 }
