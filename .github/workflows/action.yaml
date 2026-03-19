@@ -10,7 +10,7 @@ jobs:
       - name: checkoutrepo
         uses: actions/checkout@v3
       - name: azlogin
-        uses: Azure/login@v3
+        uses: azure/login@v1
         with:
           creds: ${{ secrets.ACTION_FLOW }} 
 
@@ -18,9 +18,9 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Init
-        working-directory: environment/dev
+        working-directory: RG_SA_Practical
         run: terraform init
 
       - name: Terraform Plan
-        working-directory: environment/dev
+        working-directory: RG_SA_Practical
         run: terraform plan
