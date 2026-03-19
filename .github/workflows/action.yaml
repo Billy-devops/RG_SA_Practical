@@ -18,9 +18,9 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Init
-        working-directory: RG_SA_Practical
+        # working-directory: RG_SA_Practical
         run: terraform init
 
       - name: Terraform Plan
-        working-directory: RG_SA_Practical
+        # working-directory: RG_SA_Practical
         run: terraform plan
