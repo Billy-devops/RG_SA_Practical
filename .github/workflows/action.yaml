@@ -1,0 +1,26 @@
+name: actionflow
+on:
+  push:
+    branches:
+      - main
+jobs:
+  action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkoutrepo
+        uses: actions/checkout@v3
+      - name: azlogin
+        uses: Azure/login@v3
+        with:
+          creds: ${{ secrets.ACTION_FLOW }} 
+
+      - name: Setup Terraform CLI
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        working-directory: environment/dev
+        run: terraform init
+
+      - name: Terraform Plan
+        working-directory: environment/dev
+        run: terraform plan
